@@ -1,3 +1,8 @@
+/* ======================= CSS FONTS ===========================*/
+
+/* =============================================================*/
+
+
 /* 1. DESKTOP: split page with CSS Grid */
 /* .layout: container for sidebar + content on desktop */
 .layout {
@@ -6,11 +11,79 @@
   min-height: 100vh;                     /* ensure full viewport height */
 }
 
+/* Body styling */
+body {
+  padding: 0;
+  margin: 0;
+}
+
 /* .sidebar: styling for the left navigation panel */
 .sidebar {
   background: #f4f4f4;                   /* light grey background for contrast */
   padding: 1rem;                         /* internal spacing around menu items */
   overflow-y: auto;                      /* allow scrolling if nav exceeds viewport */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Sidebar image div */
+#sidebar-image-div {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Sidebar image div figure */
+#sidebar-image-div #kush-faction-logo {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+}
+
+/* Sidebar image div figure img */
+#sidebar-image-div #kush_faction_discord_logo {
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidebar image div figcaption */
+#sidebar-image-div #kush-faction-logo-caption {
+  font-size: 200%;
+  font-family: cursive;
+}
+
+/* Sidebar navigation divider lines */
+#sidebar .sidebar-navigation-separator {
+  width: 90%;
+}
+
+/* Sidebar navigation menu heading lines on top of and below list item heading*/
+#sidebar .sidebar-navigation-menu-heading {
+  width: 90%;
+  margin: 1rem auto;        /* vertical gap + horizontal auto‑centre */
+  padding: 0.5rem 0;        /* a little breathing room above/below text */
+
+  border-top:    1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+
+  font-size: 1.25rem;
+  text-align: center;
+  background: #f4f4f4;      /* match your sidebar bg so the lines really just appear above/below */
+}
+
+/* Sidebar navigation menu div */
+#sidebar #sidebar-navigation-menu-div {
+  width: 90%;
+  margin-top: -10%;
+  padding: 0;
+}
+
+/* Sidebar navigation menu list item hr */
+#sidebar-navigation-menu li .sidebar-navigation-separator {
+  width: 90%;
 }
 
 /* .content: styling for the main page area */

@@ -71,7 +71,7 @@ body {
 
   font-size: 1.25rem;
   text-align: center;
-  background: #f4f4f4;      /* match your sidebar bg so the lines really just appear above/below */
+  background: #f4f4f4;
 }
 
 /* Sidebar navigation menu div */
@@ -97,6 +97,37 @@ body {
 .overlay {
   display: none;                         /* remove from flow until needed */
 }
+
+/* ==================== Fade and slide animation for swapping page content ================ */
+/* ensure .content always stays the same size so height doesn’t jump */
+.content {
+  position: relative;
+  min-height: 100%;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* when we want to hide the old page… */
+.content.transition-out {
+  opacity: 0;
+  transform: translateX(-1%);    /* slide left a bit as it fades */
+}
+
+/* when we want to bring the new page back… */
+.content.transition-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* only show the “active” page */
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
+}
+/* ==================== Fade and slide animation for swapping page content ================ */
 
 /* -------------- */
 /* NAV LIST STYLES */

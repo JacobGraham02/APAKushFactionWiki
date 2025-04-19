@@ -46,21 +46,39 @@
         </figure>
       </div>
 <!--      <div class="close-btn" id="close-btn">&larr;</div>-->
-      <hr class="sidebar-navigation-separator">
       <div id="sidebar-navigation-menu-div">
-        <h2 class="sidebar-navigation-menu-heading">Food</h2>
         <ul id="sidebar-navigation-menu">
-          <li><a href="#">Lasagna</a></li>
-          <li><a href="#">Dumpling</a></li>
+          <h2 class="sidebar-navigation-menu-heading">Home</h2>
+          <li><a href="#" data-section="#home">Home</a></li>
+          <h2 class="sidebar-navigation-menu-heading">Food</h2>
+          <li><a href="#" data-section="#lasagna">Lasagna</a></li>
+          <li><a href="#" data-section="#dumpling">Dumpling</a></li>
           <li><h2 class="sidebar-navigation-menu-heading">Farming</h2></li>
-          <li><a href="#">Most useful crops</a></li>
-          <li><a href="#">Propane</a></li>
-          <li><a href="#">Gas</a></li>
+          <li><a href="#" data-section="#most-useful-crops">Most useful crops</a></li>
+          <li><a href="#" data-section="#propane">Propane</a></li>
+          <li><a href="#" data-section="#gas">Gas</a></li>
         </ul>
       </div>
     </nav>
     <main class="content">
-      <p>Hello world! This is HTML5 Boilerplate.</p>
+      <section id="home" class="page active">
+        <p>This is the home section</p>
+      </section>
+      <section id="lasagna" class="page">
+        <p>This is the lasagna section</p>
+      </section>
+      <section id="dumpling" class="page">
+        <p>This is the dumpling section</p>
+      </section>
+      <section id="most-useful-crops" class="page">
+        <p>This is the most useful crops section</p>
+      </section>
+      <section id="propane" class="page">
+        <p>This is the propane section</p>
+      </section>
+      <section id="gas" class="page">
+        <p>This is the gas section</p>
+      </section>
     </main>
   </div>
   <script src="js/app.js"></script>

@@ -1,247 +1,120 @@
-/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
-
-/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-html {
-  color: #222;
-  font-size: 1em;
-  line-height: 1.4;
+/* 1. DESKTOP: split page with CSS Grid */
+/* .layout: container for sidebar + content on desktop */
+.layout {
+  display: grid;                         /* use CSS Grid for two‑column layout */
+  grid-template-columns: 250px 1fr;     /* 250px sidebar on left, remaining space for content */
+  min-height: 100vh;                     /* ensure full viewport height */
 }
 
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Customize the background color to match your design.
- */
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
+/* .sidebar: styling for the left navigation panel */
+.sidebar {
+  background: #f4f4f4;                   /* light grey background for contrast */
+  padding: 1rem;                         /* internal spacing around menu items */
+  overflow-y: auto;                      /* allow scrolling if nav exceeds viewport */
 }
 
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
+/* .content: styling for the main page area */
+.content {
+  padding: 2rem;                         /* comfortable padding around content */
 }
 
-/*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
+/* hide mobile‑only elements by default on desktop */
+/* .hamburger + .overlay are only shown at mobile breakpoints */
+.hamburger,
+.overlay {
+  display: none;                         /* remove from flow until needed */
 }
 
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
+/* -------------- */
+/* NAV LIST STYLES */
+/*  remove default list styling for a clean menu */
+.sidebar ul {
+  list-style: none;                      /* no bullets */
+  margin: 0;                             /* reset default margins */
+  padding: 0;                            /* reset default padding */
+}
+/* add vertical spacing between menu items */
+.sidebar li + li {
+  margin-top: 1rem;                      /* 1rem gap between adjacent <li> */
+}
+/* style the anchor links */
+.sidebar a {
+  text-decoration: none;                 /* remove underline */
+  color: #333;                           /* dark, readable text */
+  font-weight: bold;                     /* emphasize link labels */
 }
 
-/*
- * Remove default fieldset styles.
- */
+/* 2. MOBILE: collapse sidebar + show hamburger */
+/* breakpoint at 768px and below */
+@media (max-width: 768px) {
 
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
-}
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
-
-.hidden,
-[hidden] {
-  display: none !important;
-}
-
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
-
-.visually-hidden {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  /* 1 */
-}
-
-/*
- * Extends the .visually-hidden class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
-
-.visually-hidden.focusable:active,
-.visually-hidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  white-space: inherit;
-  width: auto;
-}
-
-/*
- * Hide visually and from screen readers, but maintain layout
- */
-
-.invisible {
-  visibility: hidden;
-}
-
-/*
- * Clearfix: contain floats
- *
- * The use of `table` rather than `block` is only necessary if using
- * `::before` to contain the top-margins of child elements.
- */
-
-.clearfix::before,
-.clearfix::after {
-  content: "";
-  display: table;
-}
-
-.clearfix::after {
-  clear: both;
-}
-
-/* ==========================================================================
-   EXAMPLE Media Queries for Responsive Design.
-   These examples override the primary ('mobile first') styles.
-   Modify as content requires.
-   ========================================================================== */
-
-@media only screen and (min-width: 35em) {
-  /* Style adjustments for viewports that meet the condition */
-}
-
-@media print,
-  (-webkit-min-device-pixel-ratio: 1.25),
-  (min-resolution: 1.25dppx),
-  (min-resolution: 120dpi) {
-  /* Style adjustments for high resolution devices */
-}
-
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid the additional HTTP request:
-   https://www.phpied.com/delay-loading-your-print-css/
-   ========================================================================== */
-
-@media print {
-  *,
-  *::before,
-  *::after {
-    background: #fff !important;
-    color: #000 !important;
-    /* Black prints faster */
-    box-shadow: none !important;
-    text-shadow: none !important;
+  /* .layout: switch to single‑column on mobile */
+  .layout {
+    grid-template-columns: 1fr;          /* only one column (content) */
   }
 
-  a,
-  a:visited {
-    text-decoration: underline;
+  /* .sidebar: off‑canvas panel that slides in */
+  .sidebar {
+    position: fixed;                     /* position relative to viewport */
+    top: 0;                              /* align to top */
+    left: 0;                             /* align to left */
+    width: 50%;                          /* cover 75% of viewport width */
+    max-width: 300px;                    /* cap width for larger devices */
+    height: 100%;                        /* full viewport height */
+    transform: translateX(-100%);        /* hide off-screen to the left */
+    transition: transform 0.3s ease-in-out; /* smooth slide animation */
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);   /* subtle depth effect */
+    background: #fff;                    /* white background over content */
+    z-index: 1000;                       /* above overlay & content */
+  }
+  /* when sidebar has .active, bring it into view */
+  .sidebar.active {
+    transform: translateX(0);            /* slide back to x=0 */
   }
 
-  a[href]::after {
-    content: " (" attr(href) ")";
+  /* .overlay: semi‑transparent backdrop behind the menu */
+  .overlay {
+    display: block;                      /* enable at mobile size */
+    position: fixed;                     /* cover entire viewport */
+    top: 0; left: 0;                     /* align to top-left */
+    width: 100%; height: 100%;           /* full screen */
+    background: rgba(0, 0, 0, 0.5);      /* darken rest of screen */
+    opacity: 0;                          /* start hidden */
+    visibility: hidden;                  /* remove from flow */
+    transition: opacity 0.3s ease-in-out;/* fade in/out smoothly */
+    z-index: 900;                        /* under sidebar but above content */
+  }
+  /* show the overlay when active */
+  .overlay.active {
+    opacity: 1;                          /* fade up to 50% */
+    visibility: visible;                 /* make it clickable */
   }
 
-  abbr[title]::after {
-    content: " (" attr(title) ")";
+  /* .hamburger: mobile menu toggle button */
+  .hamburger {
+    display: block;                      /* show only on mobile */
+    position: fixed;                     /* fixed at viewport corner */
+    top: 1rem;                           /* 1rem from top */
+    left: 1rem;                          /* 1rem from left */
+    width: 2rem;                         /* size of button */
+    height: 2rem;                        /* size of button */
+    background: transparent;             /* no background */
+    border: none;                        /* remove default button styling */
+    cursor: pointer;                     /* pointer cursor for clickability */
+    z-index: 500;                        /* sits under overlay when menu is open */
+  }
+  /* .bar: each line in the hamburger icon */
+  .hamburger .bar {
+    display: block;                      /* stack bars vertically */
+    width: 100%;                         /* fill button width */
+    height: 0.25rem;                     /* bar thickness */
+    margin: 0.3rem 0;                    /* spacing between bars */
+    background: #333;                    /* dark bars for visibility */
+    transition: background 0.2s;         /* allow color changes on hover */
   }
 
-  /*
-   * Don't show links that are fragment identifiers,
-   * or use the `javascript:` pseudo protocol
-   */
-  a[href^="#"]::after,
-  a[href^="javascript:"]::after {
-    content: "";
-  }
-
-  pre {
-    white-space: pre-wrap !important;
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
+  /* .content: ensure main content sits below the hamburger */
+  .content {
+    padding: 4rem 1rem 1rem;             /* extra top padding for the button */
   }
 }
-

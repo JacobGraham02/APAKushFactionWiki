@@ -129,6 +129,21 @@ body {
 }
 /* ==================== Fade and slide animation for swapping page content ================ */
 
+/* ==================== Highlight the active link ========================================= */
+.sidebar a[data-section].active,
+.sidebar a[data-section]:hover {
+  background-color: #e0e0e0;   /* light grey */
+  color: #111;                 /* darker text */
+  border-radius: 4px;          /* soften the corners */
+  padding: 1%;
+  text-decoration: none;
+}
+
+.sidebar ul li.active-item a {
+  /* same styles as above */
+}
+/* ==================== Highlight the active link ========================================== */
+
 /* -------------- */
 /* NAV LIST STYLES */
 /*  remove default list styling for a clean menu */

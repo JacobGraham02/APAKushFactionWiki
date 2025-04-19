@@ -4,11 +4,26 @@ const overlay = document.getElementById("overlay");
 const content = document.querySelector('.content');
 const pages   = document.querySelectorAll('.content .page');
 const links   = document.querySelectorAll('nav.sidebar a[data-section]');
+const default_active_page = "#home";
 
 hamburger_menu_icon.addEventListener("click", () => {
     sidebar.classList.toggle('active');
     overlay.classList.toggle('active');
 });
+
+// call this after you swap the .page.active
+function updateNavHighlight(selector) {
+  links.forEach(link => {
+    if (link.getAttribute('data-section') === selector) {
+      link.classList.add('active');
+      // if you prefer styling the <li>, you could do:
+      // link.parentElement.classList.add('active-item');
+    } else {
+      link.classList.remove('active');
+      // link.parentElement.classList.remove('active-item');
+    }
+  });
+}
 
 sidebar.querySelectorAll("a").forEach((element) => {
   element.addEventListener("click", () => {
@@ -36,6 +51,8 @@ function showSection(selector) {
     pages.forEach(p => p.classList.remove('active'));
     document.querySelector(selector).classList.add('active');
 
+    updateNavHighlight(selector);
+
     // 3) fade back in
     content.classList.remove('transition-out');
     content.classList.add('transition-in');
@@ -53,3 +70,8 @@ links.forEach(link => {
     overlay.classList.remove('active');
   });
 });
+
+/*
+Initially after the page first loads, automatically highlight the 'home' section list item
+ */
+updateNavHighlight(default_active_page);

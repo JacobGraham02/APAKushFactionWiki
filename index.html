@@ -6,26 +6,82 @@
     <title>APA Kush Faction Wiki</title>
     <link rel="stylesheet" href="css/style.css">
 
+    <meta name="author" content="Jacob Graham (jacobdgraham02@gmail.com)"/>
+    <meta name="copyright" content="Jacob Graham (jacobdgraham02@gmail.com)"/>
+    <meta name="robots" content="follow"/>
+<!--    <meta http-equiv="content-type" content="no-cache"/>-->
     <meta name="description" content="The APA Kush Faction Wiki">
-    <meta property="og:title" content="">
-    <meta property="og:type" content="">
+    <meta property="og:title" content="APA Kush Faction Wiki">
+    <meta property="og:type" content="website">
     <meta property="og:url" content="">
-    <meta property="og:image" content="">
-    <meta property="og:image:alt" content="">
+    <meta property="og:image" content="https://raw.githubusercontent.com/JacobGraham02/APAKushFactionWiki/refs/heads/development/images/WebsiteIcon.png">
+    <meta property="og:image:alt" content="APA Kush Faction Wiki logo with Spongebob the drug kingpin">
 
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="icon" sizes="any" href="images/WebsiteIconIco.ico">
+    <link rel="icon" type="image/x-icon" href="images/WebsiteIconIco.ico">
+    <link rel="apple-touch-icon" href="images/WebsiteIcon.png">
 
     <link rel="manifest" href="site.webmanifest">
     <meta name="theme-color" content="#fafafa">
   </head>
 <body>
+  <!-- 1. Hamburger toggle button (hidden on desktop, shown on mobile) -->
+  <button class="hamburger" id="hamburger">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
+  <!-- 2. Dark overlay behind the off‑canvas sidebar -->
+  <div class="overlay" id="overlay"></div>
+
+  <div class="layout">
+    <nav class="sidebar" id="sidebar">
+      <div id="sidebar-image-div">
+        <figure id="kush-faction-logo">
+          <img src="images/WebsiteIcon.png" alt="Kush Faction Discord logo" id="kush_faction_discord_logo">
+          <figcaption id="kush-faction-logo-caption">
+            Kush Faction Wiki
+          </figcaption>
+        </figure>
+      </div>
+<!--      <div class="close-btn" id="close-btn">&larr;</div>-->
+      <div id="sidebar-navigation-menu-div">
+        <ul id="sidebar-navigation-menu">
+          <h2 class="sidebar-navigation-menu-heading">Home</h2>
+          <li><a href="#" data-section="#home">Home</a></li>
+          <h2 class="sidebar-navigation-menu-heading">Food</h2>
+          <li><a href="#" data-section="#lasagna">Lasagna</a></li>
+          <li><a href="#" data-section="#dumpling">Dumpling</a></li>
+          <li><h2 class="sidebar-navigation-menu-heading">Farming</h2></li>
+          <li><a href="#" data-section="#most-useful-crops">Most useful crops</a></li>
+          <li><a href="#" data-section="#propane">Propane</a></li>
+          <li><a href="#" data-section="#gas">Gas</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="content">
+      <section id="home" class="page active">
+        <p>This is the home section</p>
+      </section>
+      <section id="lasagna" class="page">
+        <p>This is the lasagna section</p>
+      </section>
+      <section id="dumpling" class="page">
+        <p>This is the dumpling section</p>
+      </section>
+      <section id="most-useful-crops" class="page">
+        <p>This is the most useful crops section</p>
+      </section>
+      <section id="propane" class="page">
+        <p>This is the propane section</p>
+      </section>
+      <section id="gas" class="page">
+        <p>This is the gas section</p>
+      </section>
+    </main>
+  </div>
   <script src="js/app.js"></script>
-
 </body>
 
 </html>

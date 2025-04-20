@@ -129,13 +129,6 @@ body {
   transform: translateX(0);
 }
 
-/* only show the active page */
-.page {
-  display: none;
-}
-.page.active {
-  display: block;
-}
 /* ==================== Fade and slide animation for swapping page content ================ */
 
 /* ==================== Highlight the active link ========================================= */
@@ -177,6 +170,26 @@ body {
   text-decoration: none;                 /* remove underline */
   color: #333;                           /* dark, readable text */
   font-weight: bold;                     /* emphasize link labels */
+}
+
+/* ===================== GLOBAL SECTION STYLING ======================*/
+.section-heading {
+  margin: 0 auto;
+}
+
+/* ===================== HOME SECTION ================================*/
+#home #home-section-heading {
+  margin: 0 auto;
+}
+
+/* only show the active page */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: flex;
+  flex-direction: column;
 }
 
 /* 2. MOBILE: collapse sidebar + show hamburger */

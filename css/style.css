@@ -192,6 +192,21 @@ body {
   flex-direction: column;
 }
 
+/* ====================== LASAGNA SECTION ===========================*/
+#lasagna-section-requirements-and-resources-and-making {
+
+}
+
+.lasagna-example-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem auto;  /* Vertical breathing room + center */
+}
+
+.image-only {
+  list-style: none;
+}
 /* 2. MOBILE: collapse sidebar + show hamburger */
 /* breakpoint at 768px and below */
 @media (max-width: 768px) {

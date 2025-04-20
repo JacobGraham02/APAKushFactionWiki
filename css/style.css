@@ -5,7 +5,7 @@
   grid-template-columns: 250px 1fr;     /* 250px sidebar on left, remaining space for content */
   grid-template-rows: 1fr auto;         /* first row grows, second row (footer) is auto‑height */
   height: 100vh;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 /* Body styling */
@@ -32,6 +32,7 @@ body {
   grid-column: 2;
   grid-row: 2;
   padding: 1rem;
+  display: block;
   background: #f4f4f4;
   text-align: center;
   position: relative;

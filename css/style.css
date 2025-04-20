@@ -172,6 +172,11 @@ body {
   font-weight: bold;                     /* emphasize link labels */
 }
 
+/* ===================== GLOBAL SECTION STYLING ======================*/
+.section-heading {
+  margin: 0 auto;
+}
+
 /* ===================== HOME SECTION ================================*/
 #home #home-section-heading {
   margin: 0 auto;

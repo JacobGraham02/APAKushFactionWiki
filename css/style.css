@@ -4,21 +4,23 @@
 
 
 /* 1. DESKTOP: split page with CSS Grid */
-/* .layout: container for sidebar + content on desktop */
+/* layout container for sidebar + content on desktop */
 .layout {
-  display: grid;                         /* use CSS Grid for two‑column layout */
+  display: grid;                        /* use CSS Grid for two‑column layout */
   grid-template-columns: 250px 1fr;     /* 250px sidebar on left, remaining space for content */
-  min-height: 100vh;                     /* ensure full viewport height */
+  grid-template-rows: 1fr auto;         /* first row grows, second row (footer) is auto‑height */
+  height: 100vh;
+  overflow: hidden;
 }
 
 /* Body styling */
 body {
   padding: 0;
   margin: 0;
-  overflow-y: hidden;
+  overflow: auto;
 }
 
-/* .sidebar: styling for the left navigation panel */
+/* sidebar styling for the left navigation panel */
 .sidebar {
   background: #f4f4f4;                   /* light grey background for contrast */
   padding: 1rem;                         /* internal spacing around menu items */
@@ -27,6 +29,18 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  grid-row: 1 / span 2;                   /* Make the sidebar expand 2 rows */
+}
+
+/* Footer in the second row second column */
+.footer {
+  grid-column: 2;
+  grid-row: 2;
+  padding: 1rem;
+  background: #f4f4f4;
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 /* Sidebar image div */
@@ -87,9 +101,16 @@ body {
   width: 90%;
 }
 
-/* .content: styling for the main page area */
+/* content styling for the main page area */
 .content {
   padding: 2rem;                         /* comfortable padding around content */
+  overflow-y: auto;
+  position: relative;
+  min-height: 0;
+  height: 100%;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* hide mobile‑only elements by default on desktop */
@@ -100,28 +121,20 @@ body {
 }
 
 /* ==================== Fade and slide animation for swapping page content ================ */
-/* ensure .content always stays the same size so height doesn’t jump */
-.content {
-  position: relative;
-  min-height: 100%;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* when we want to hide the old page… */
+/* ensure content always stays the same size so height doesn’t jump */
+/* when we want to hide the old page */
 .content.transition-out {
   opacity: 0;
   transform: translateX(-1%);    /* slide left a bit as it fades */
 }
 
-/* when we want to bring the new page back… */
+/* when we want to bring the new page back */
 .content.transition-in {
   opacity: 1;
   transform: translateX(0);
 }
 
-/* only show the “active” page */
+/* only show the active page */
 .page {
   display: none;
 }
@@ -178,6 +191,11 @@ body {
   /* .layout: switch to single‑column on mobile */
   .layout {
     grid-template-columns: 1fr;          /* only one column (content) */
+  }
+
+  /* Footer when on mobile device to cover all 3 columns of the website */
+  .footer {
+    grid-column: 1 / -1; /* Span all available columns */
   }
 
   /* .sidebar: off‑canvas panel that slides in */
